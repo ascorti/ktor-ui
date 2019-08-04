@@ -7,9 +7,20 @@ class AppNode extends Component {
     }
 
     pingServer() {
-        fetch(this.state.watcherUrl + "/_adminApi/ping")
+        fetch(this.state.watcherUrl + "/_adminApi/ping", {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body:  JSON.stringify({
+                "publicAddress": this.state.url
+            }),
+        })
             .then(res => res.status)
             .then(res => this.setState({ state: (res === 200 ? "OK": "NOT OK") }));
+
+
     }
 
     componentDidMount() {

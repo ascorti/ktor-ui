@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
         <div>
-          <AppNode name="test node" url="http://localhost:9100" watcherUrl="http://localhost:3000" />
+          <AppNode name="test node" url="https://eshop.applab.coolpany.cloud" watcherUrl="http://localhost:8080" />
         </div>
     );
   }
