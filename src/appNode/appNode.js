@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 
 class AppNode extends Component {
+    static PING_TIMEOUT_DEFAULT_MS = 10 * 1000;
+
     constructor(props) {
         super(props);
         this.state = { url: props.url, name: props.name, watcherUrl: props.watcherUrl }
@@ -25,7 +27,7 @@ class AppNode extends Component {
 
     componentDidMount() {
         this.pingServer();
-        this.interval = setInterval(() => this.pingServer(), 10000);
+        this.interval = setInterval(() => this.pingServer(), AppNode.PING_TIMEOUT_DEFAULT_MS);
     }
     componentWillUnmount() {
         clearInterval(this.interval);
